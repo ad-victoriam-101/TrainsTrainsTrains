@@ -29,6 +29,10 @@ var config = {
           trainTimeTill: trainTimeTill,
           dataAdded: firebase.database.ServerValue.TIMESTAMP
       });
+      $("#trainName").val("");
+      $("#trainDestination").val("");
+      $("#trainArival").val("");
+      $("#trainFrequency").val("");
   });
   database.ref().on("child_added",function(childSnapshot){
       console.log(childSnapshot.val());
