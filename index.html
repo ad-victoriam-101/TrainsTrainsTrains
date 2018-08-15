@@ -5,10 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>TrainSchedules</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    
 </head>
 <body>
-    
+    <div class="wrapper">
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Trains Trains Trains</h1>
+                <p>A schedule of all the incomming trains</p>
+
+            </div>
+        </div>
+        <div class="container box">
+            <!-- form for the trains -->
+            <form>
+                <div class="form-group">
+                    <label for="trainName">Train Name</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1"  placeholder="Enter the Name of your Train">
+                </div>
+                <div class="form-group">
+                    <label for="trainDestination">Destination</label>
+                    <input type="text" class="form-control" id="trainDestination" placeholder="Destination">
+                </div>
+                <div class="form-group">
+                        <label for="trainArival">Arival</label>
+                        <input type="number" class="form-control" id="trainArival" placeholder="Arival Time">
+                </div>
+                <div class="form-group">
+                        <label for="trainFrequency">Frequency</label>
+                        <input type="text" class="form-control" id="trainFrequency" placeholder="Frequency of Train">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <br>
+        
+        <div class="container box">
+            <!-- table madness -->
+            <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">Train Name</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Arival Time</th>
+                        <th scope="col">Frequency</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Starting Train</td>
+                        <td>Someplace</td>
+                        <td>Soon</td>
+                        <td>every 5 min</td>
+                      </tr>
+                    </tbody>
+                  </table>
+        </div>
+
+    </div>
+    <!--Start of JS links -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/javascript/main.js"></script>
+
 </body>
 </html>
