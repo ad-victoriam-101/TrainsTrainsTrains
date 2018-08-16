@@ -41,7 +41,15 @@ var config = {
       $("#trainTable").append("<tr>"+ "<td>" + childSnapshot.val().trainName +"</td>"+"<td>"+ childSnapshot.val().trainDestination +"</td>" + "<td>" + childSnapshot.val().trainArival +"</td>"+"<td>"+ childSnapshot.val().trainTimeTill+"</td>"+"</tr>")
     var trainTime = moment(childSnapshot.val().dateAdded)
     console.log(trainTime.diff(moment(),"minutes"))
-
+    var tfrequency = childSnapshot.val().trainTimeTill
+    var firstTime = childSnapshot.val().trainArival
+    var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1,"years");
+    console.log(firstTimeConverted)
+    var currentTime = moment();
+    var diffTime = moment().diff(moment(firstTimeConverted),"minutes")
+    var timeRemain = diffTime % tfrequency;
+    var tMinutesTillTrain = tfrequency - timeRemain;
+    var nextTrain = moment().add(tMinutesTillTrain,"minutes");
   },function(errorObject){
       console.log("Errors Handled: " + errorObject.code);
   });
