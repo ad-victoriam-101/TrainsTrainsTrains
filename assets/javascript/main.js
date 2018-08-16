@@ -15,6 +15,7 @@ var config = {
   var trainDestination = "";
   var trainArival = 0;
   var trainTimeTill = 0;
+//   preformed on click of the submit button. 
   $("#add-train").on('click',function(event){
       event.preventDefault();
       trainName = $("#trainName").val().trim();
@@ -27,13 +28,22 @@ var config = {
           trainDestination: trainDestination,
           trainArival: trainArival,
           trainTimeTill: trainTimeTill,
-          dataAdded: firebase.database.ServerValue.TIMESTAMP
+          dateAdded: firebase.database.ServerValue.TIMESTAMP
       });
       $("#trainName").val("");
       $("#trainDestination").val("");
       $("#trainArival").val("");
       $("#trainFrequency").val("");
   });
+//   start of populating the table with data from Firebase.
   database.ref().on("child_added",function(childSnapshot){
-      console.log(childSnapshot.val());
+    //   console.log(childSnapshot.val());
+      $("#trainTable").append("<tr>"+ "<td>" + childSnapshot.val().trainName +"</td>"+"<td>"+ childSnapshot.val().trainDestination +"</td>" + "<td>" + childSnapshot.val().trainArival +"</td>"+"<td>"+ childSnapshot.val().trainTimeTill+"</td>"+"</tr>")
+    var trainTime = moment(childSnapshot.val().dateAdded)
+    console.log(trainTime.diff(moment(),"minutes"))
+
+  },function(errorObject){
+      console.log("Errors Handled: " + errorObject.code);
   });
+//   moment BS
+
