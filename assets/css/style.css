@@ -16,3 +16,11 @@ thead{
     border-radius: 5px;
     color:whitesmoke;
 }
+#clock{
+    text-align: center;
+    font-size: 30px;
+    color:wheat;
+    background-color: teal;
+    border-radius: 5px;
+    padding:10px;
+}
